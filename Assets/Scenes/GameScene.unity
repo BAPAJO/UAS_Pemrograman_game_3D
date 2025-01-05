@@ -18621,11 +18621,12 @@ MonoBehaviour:
   minIdleTime: 1
   maxIdleTime: 1
   idleTime: 1
-  sightDistance: 15
+  sightDistance: 11
+  secondarySightDistance: 16.3
   catchDistance: 3
   chaseTime: 0
-  minChaseTime: 10
-  maxChaseTime: 25
+  minChaseTime: 2
+  maxChaseTime: 10
   jumpscareTime: 2
   walking: 1
   chasing: 0
@@ -94257,7 +94258,7 @@ GameObject:
   - component: {fileID: 1567623205}
   m_Layer: 0
   m_Name: player
-  m_TagString: Player
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94292,8 +94293,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1567623206}
-  speed: 6.27
+  walkSpeed: 4.5
+  sprintSpeed: 10
   gravity: -9.81
+  maxStamina: 5
+  staminaRegenRate: 1
+  staminaDepleteRate: 1
+  regenDelay: 0.5
 --- !u!143 &1567623206
 CharacterController:
   m_ObjectHideFlags: 0
