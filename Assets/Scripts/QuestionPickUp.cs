@@ -9,6 +9,20 @@ public class QuestionPickUp : MonoBehaviour
     public bool isShowing = false;
     private bool hasRun = false;
 
+    public int questionID = -1;
+
+    private void Start()
+    {
+        // Ambil soal acak dari QuestionManager
+        questionID = QuestionManager.Instance.GetRandomQuestion();
+        if (questionID == -1)
+        {
+            // Tidak ada soal tersisa, hancurkan objek
+            Debug.LogWarning("Soal habis untuk objek ini!");
+            //Destroy(gameObject);
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         inTrigger = true;
@@ -33,11 +47,14 @@ public class QuestionPickUp : MonoBehaviour
                 {
                     isShowing = true;
                     menu.SetActive(isShowing);
+
+                    Debug.Log("Menampilkan soal dengan ID: " + questionID);
+
                     // gameObject.GetComponent<MouseLook>().questionOpen = true;
 
                     Cursor.lockState = CursorLockMode.None; // Bebaskan kursor
                     Cursor.visible = true;
-                    
+
                     Destroy(this.gameObject);
                 }
             }

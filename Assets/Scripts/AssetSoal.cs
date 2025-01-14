@@ -7,6 +7,8 @@ using TMPro;
 public class AssetSoal : MonoBehaviour
 {
 
+    
+
     public GameObject menu;
     public bool isShowing = false;
 
@@ -27,6 +29,8 @@ public class AssetSoal : MonoBehaviour
     private float durasi;
     public float durasiPenilaian;
 
+    private List<int> soalBelumTerjawab = new List<int>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +45,7 @@ public class AssetSoal : MonoBehaviour
         maxSoal = soal.Length;
 
         OlahSoal();
+        InisialisasiSoalBelumTerjawab();
 
         ambilSoal = true;
 
@@ -58,48 +63,71 @@ public class AssetSoal : MonoBehaviour
             for(int j = 0; j < tempSoal.Length; j++)
             {
                 soalBag[i,j] = tempSoal[j];
-                continue;
+                //continue;
             }
-            continue;
+            //continue;
         }
 
+    }
+
+    private void InisialisasiSoalBelumTerjawab()
+    {
+        for (int i = 0; i < maxSoal; i++)
+        {
+            soalBelumTerjawab.Add(i);
+        }
     }
 
     private void TampilkanSoal()
     {
-        if (indexSoal < maxSoal)
+        if (indexSoal < maxSoal && soalBelumTerjawab.Count > 0)
         {
             if (ambilSoal)
             {
-                for(int i=0; i < soal.Length; i++)
-                {
-                    int randomIndexSoal = Random.Range(0, soal.Length);
-                    print("random: " + randomIndexSoal);
-                    if (!soalSelesai[randomIndexSoal])
-                    {
-                        txtSoal.text = soalBag[randomIndexSoal, 0];
-                        txtOpsiA.text = soalBag[randomIndexSoal, 1];
-                        txtOpsiB.text = soalBag[randomIndexSoal, 2];
-                        txtOpsiC.text = soalBag[randomIndexSoal, 3];
-                        txtOpsiD.text = soalBag[randomIndexSoal, 4];
-                        kunciJ = soalBag[randomIndexSoal,5][0];
+                //for(int i=0; i < soal.Length; i++)
+                //{
+                    //int randomIndexSoal = Random.Range(0, soalBelumTerjawab.Count);
+                    int randomIndex = Random.Range(0, soalBelumTerjawab.Count);
+                    int soalID = soalBelumTerjawab[randomIndex];
 
-                        soalSelesai[randomIndexSoal] = true;
+                    txtSoal.text = soalBag[soalID, 0];
+                    txtOpsiA.text = soalBag[soalID, 1];
+                    txtOpsiB.text = soalBag[soalID, 2];
+                    txtOpsiC.text = soalBag[soalID, 3];
+                    txtOpsiD.text = soalBag[soalID, 4];
+                    kunciJ = soalBag[soalID, 5][0];
 
-                        ambilSoal = false;
-                        break;
+                    soalBelumTerjawab.RemoveAt(randomIndex);
+                    ambilSoal = false;
 
-                    }
-                    else
-                    {
-                        continue;
-                    }
+                    //print("random: " + randomIndexSoal);
+                    //if (!soalSelesai[randomIndexSoal])
+                    //{
+                        //txtSoal.text = soalBag[randomIndexSoal, 0];
+                        //txtOpsiA.text = soalBag[randomIndexSoal, 1];
+                        //txtOpsiB.text = soalBag[randomIndexSoal, 2];
+                       // txtOpsiC.text = soalBag[randomIndexSoal, 3];
+                       // txtOpsiD.text = soalBag[randomIndexSoal, 4];
+                       // kunciJ = soalBag[randomIndexSoal,5][0];
+
+                        //soalSelesai[randomIndexSoal] = true;
+
+                        //ambilSoal = false;
+                        //break;
                 }
 
-
+                }
+                else
+                {
+                    Debug.Log("Semua soal telah selesai!");
+                    //continue;
+                }
             }
-        }
-    }
+
+
+            //}
+        
+    //}
 
     public GameObject panelSalah;
 
@@ -107,8 +135,8 @@ public class AssetSoal : MonoBehaviour
     {
         CheckJawaban(opsiHuruf[0]);
         
-        indexSoal++;
-        ambilSoal = true;
+        //indexSoal++;
+        //ambilSoal = true;
         //TampilkanSoal();
 
     }
