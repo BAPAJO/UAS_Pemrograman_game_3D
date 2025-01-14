@@ -34,6 +34,10 @@ public class QuestionPickUp : MonoBehaviour
                     isShowing = true;
                     menu.SetActive(isShowing);
                     // gameObject.GetComponent<MouseLook>().questionOpen = true;
+
+                    Cursor.lockState = CursorLockMode.None; // Bebaskan kursor
+                    Cursor.visible = true;
+                    
                     Destroy(this.gameObject);
                 }
             }

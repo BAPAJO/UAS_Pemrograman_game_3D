@@ -7,6 +7,9 @@ using TMPro;
 public class AssetSoal : MonoBehaviour
 {
 
+    public GameObject menu;
+    public bool isShowing = false;
+
     public TextAsset assetSoal;
     private string[] soal;
     private string[,] soalBag;
@@ -20,9 +23,16 @@ public class AssetSoal : MonoBehaviour
     public Text txtSoal;
     public TextMeshProUGUI txtOpsiA, txtOpsiB, txtOpsiC, txtOpsiD;
 
+    bool isHasil;
+    private float durasi;
+    public float durasiPenilaian;
+
     // Start is called before the first frame update
     void Start()
     {
+        durasi = durasiPenilaian;
+
+
         soal = assetSoal.ToString().Split('#');
 
         soalSelesai = new bool[soal.Length];
@@ -91,24 +101,49 @@ public class AssetSoal : MonoBehaviour
         }
     }
 
+    public GameObject panelSalah;
+
     public void Opsi(string opsiHuruf)
     {
         CheckJawaban(opsiHuruf[0]);
+        
         indexSoal++;
         ambilSoal = true;
-        TampilkanSoal();
+        //TampilkanSoal();
 
     }
 
     private void CheckJawaban(char huruf)
     {
+        string penilaian;
+
+
         if (huruf.Equals(kunciJ))
         {
-            print("Benar");
+            Debug.Log("Jawaban benar!");
+            penilaian = "Benar!";
+            
+            menu.SetActive(false);
+            isShowing = false;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
         else
         {
-            print("Salah");
+            Debug.Log("Jawaban salah!");
+            penilaian = "Salah!";
+
+            if (isHasil)
+            {
+                
+            }
+            else
+            {
+                panelSalah.SetActive(true);
+            }
+
+            //panelSalah.SetActive(true);
         }
     }
 
@@ -117,6 +152,18 @@ public class AssetSoal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (panelSalah.activeSelf)
+        {
+            durasiPenilaian -= Time.deltaTime;
+
+            if (durasiPenilaian <= 0)
+            {
+                panelSalah.SetActive(false);
+                durasiPenilaian = durasi;
+
+                TampilkanSoal();
+            }
+        }
         
     }
 }
