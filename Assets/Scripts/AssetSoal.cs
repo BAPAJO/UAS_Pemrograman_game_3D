@@ -122,6 +122,8 @@ public class AssetSoal : MonoBehaviour
         {
             Debug.Log("Jawaban benar!");
             penilaian = "Benar!";
+
+            GameObject.Find("SetProgressQuestion").GetComponent<QuestionProgress>().IncrementSoalBenar(); // Tambahkan progres
             
             menu.SetActive(false);
             isShowing = false;
