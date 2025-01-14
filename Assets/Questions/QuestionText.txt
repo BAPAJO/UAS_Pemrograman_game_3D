@@ -1,12 +1,60 @@
-Julukan Kota Pelajar di Indonesia adalah...
-#Palembang
-#Solo
-#Yogyajarta
-#Jakarta
-#C
-!Candi Borobudur merupakan candi Agama
-#Hindu
-#konghucu
-#katholik
-#Buddha
-#D
+Ibukota Indonesia adalah...
++Jakarta  
++Padang  
++Pekanbaru  
++Semarang  
++A
+#Kota Semarang berada di pulau...
++Kalimantan  
++Papua  
++Sulawesi  
++Jawa  
++D
+#Presiden pertama Indonesia...
++Soekarno  
++Jokowi  
++Abdurrahman Wahid  
++Megawati  
++A
+#Jumlah planet di tata surya adalah...
++7  
++8  
++9  
++10  
++B
+#Lambang Pancasila sila ke-2 adalah...
++Kepala Banteng  
++Pohon Beringin  
++Padi dan Kapas  
++Rantai  
++D
+#Warna dasar bendera Indonesia adalah...
++Biru dan Putih  
++Merah dan Putih  
++Merah dan Hijau  
++Merah dan Kuning  
++B
+#Hewan yang menjadi lambang negara Indonesia adalah...
++Gajah  
++Komodo  
++Harimau  
++Garuda  
++D
+#Pulau terbesar di Indonesia adalah...
++Jawa  
++Sumatera  
++Kalimantan  
++Papua  
++C
+#Tanggal kemerdekaan Indonesia adalah...
++17 Agustus 1945  
++17 April 1945  
++17 Agustus 1950  
++17 April 1950  
++A
+#Laut terbesar di dunia adalah...
++Laut Cina Selatan  
++Laut Atlantik  
++Laut Pasifik  
++Laut Arktik  
++C
