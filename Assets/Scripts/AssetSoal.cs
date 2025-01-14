@@ -78,6 +78,21 @@ public class AssetSoal : MonoBehaviour
         }
     }
 
+    private void buatSoal()
+    {
+        int randomIndex = Random.Range(0, soalBelumTerjawab.Count);
+        int soalID = soalBelumTerjawab[randomIndex];
+
+        txtSoal.text = soalBag[soalID, 0];
+        txtOpsiA.text = soalBag[soalID, 1];
+        txtOpsiB.text = soalBag[soalID, 2];
+        txtOpsiC.text = soalBag[soalID, 3];
+        txtOpsiD.text = soalBag[soalID, 4];
+        kunciJ = soalBag[soalID, 5][0];
+
+        soalBelumTerjawab.RemoveAt(randomIndex);
+    }
+
     private void TampilkanSoal()
     {
         if (indexSoal < maxSoal && soalBelumTerjawab.Count > 0)
@@ -87,17 +102,7 @@ public class AssetSoal : MonoBehaviour
                 //for(int i=0; i < soal.Length; i++)
                 //{
                     //int randomIndexSoal = Random.Range(0, soalBelumTerjawab.Count);
-                    int randomIndex = Random.Range(0, soalBelumTerjawab.Count);
-                    int soalID = soalBelumTerjawab[randomIndex];
-
-                    txtSoal.text = soalBag[soalID, 0];
-                    txtOpsiA.text = soalBag[soalID, 1];
-                    txtOpsiB.text = soalBag[soalID, 2];
-                    txtOpsiC.text = soalBag[soalID, 3];
-                    txtOpsiD.text = soalBag[soalID, 4];
-                    kunciJ = soalBag[soalID, 5][0];
-
-                    soalBelumTerjawab.RemoveAt(randomIndex);
+                    buatSoal();
                     ambilSoal = false;
 
                     //print("random: " + randomIndexSoal);
@@ -156,6 +161,7 @@ public class AssetSoal : MonoBehaviour
             menu.SetActive(false);
             isShowing = false;
 
+            buatSoal();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
@@ -163,6 +169,7 @@ public class AssetSoal : MonoBehaviour
         {
             Debug.Log("Jawaban salah!");
             penilaian = "Salah!";
+            buatSoal();
 
             if (isHasil)
             {
