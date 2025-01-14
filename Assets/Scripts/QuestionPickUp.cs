@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class QuestionPickUp : MonoBehaviour
 {
-
     public bool inTrigger;
     public GameObject menu;
     public bool isShowing = false;
@@ -34,6 +33,7 @@ public class QuestionPickUp : MonoBehaviour
                 {
                     isShowing = true;
                     menu.SetActive(isShowing);
+                    // gameObject.GetComponent<MouseLook>().questionOpen = true;
                     Destroy(this.gameObject);
                 }
             }
