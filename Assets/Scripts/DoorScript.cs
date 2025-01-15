@@ -62,7 +62,7 @@ public class DoorScript : MonoBehaviour
                 }
                 else
                 {
-                    GUI.Box(new Rect(0, 0, 200, 25), "Cari Semua Soal!");
+                    GUI.Box(new Rect(0, 0, 200, 25), "Need a key!");
                 }
             }
         }

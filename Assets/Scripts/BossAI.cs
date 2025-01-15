@@ -27,8 +27,6 @@ public class BossAI : MonoBehaviour
         walking = true;
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
-        // idleTime = Random.Range(2f, 5f);
-        // chaseTime = Random.Range(8f, 15f);
     }
 
     void Update()

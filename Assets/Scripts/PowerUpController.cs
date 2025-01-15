@@ -5,7 +5,7 @@ using UnityEngine;
 public class PowerUpController : MonoBehaviour
 {
     public float speedBoost = 2f; 
-    public float duration = 3f; 
+    public float duration = 5f; 
 
     private void OnTriggerEnter(Collider other)
     {
