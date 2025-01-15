@@ -5,44 +5,43 @@ using TMPro;
 
 public class QuestionProgress : MonoBehaviour
 {
-    public TextMeshProUGUI progressText; // Reference to progress text
-    private int soalBenar = 0; // Number of correct answers
-    private int totalSoal = 10; // Total questions
-    private bool notifTampil = false; // Notification status
-    public GameObject notifGate; // UI notification object
-    public DoorScript doorScript; // Reference to DoorScript
+
+    public TextMeshProUGUI progressText; // Referensi ke teks soal progress
+    private int soalBenar = 0; // Jumlah soal yang dijawab benar
+    private int totalSoal = 10; // Total soal yang tersedia
+    // Start is called before the first frame update
+
+    private bool notifTampil = false; // Menyimpan status apakah notifikasi sudah muncul
+    public GameObject notifGate;     // Objek UI notifikasi
+
+
+
 
     void Start()
     {
-        UpdateProgressText(); // Initialize text
+        UpdateProgressText(); // Inisialisasi teks di awal
+        
     }
 
     public void IncrementSoalBenar()
     {
-        soalBenar++; // Increment correct answers
-        UpdateProgressText(); // Update text
+        soalBenar++; // Tambah jumlah soal yang dijawab benar
+        UpdateProgressText(); // Perbarui teks
 
         if (soalBenar == totalSoal && !notifTampil)
         {
-            notifTampil = true; // Notification only shows once
-            notifGate.SetActive(true); // Activate notification
-
-            // Unlock the door
-            if (doorScript != null)
-            {
-                DoorScript.doorKey = true; // Unlock the door
-                Debug.Log("Door unlocked!");
-            }
-            else
-            {
-                Debug.LogError("DoorScript reference is missing!");
-            }
-
-            // Optional: Hide the notification after a few seconds
+            notifTampil = true; // Set status agar notifikasi hanya muncul sekali
+            notifGate.SetActive(true); // Aktifkan notifikasi
+            
+            // Opsional: Nonaktifkan notifikasi setelah beberapa detik
             StartCoroutine(HilangkanNotif());
+            
+            //soalBenar++; // Tambah jumlah soal yang dijawab benar
+            //UpdateProgressText(); // Perbarui teks
         }
     }
 
+    // Fungsi untuk memperbarui teks progress
     private void UpdateProgressText()
     {
         progressText.text = $"{soalBenar}/{totalSoal}";
@@ -50,7 +49,14 @@ public class QuestionProgress : MonoBehaviour
 
     private IEnumerator HilangkanNotif()
     {
-        yield return new WaitForSeconds(5f); // Notification appears for 5 seconds
-        notifGate.SetActive(false); // Deactivate notification
+        yield return new WaitForSeconds(5f); // Notifikasi muncul selama 5 detik
+        notifGate.SetActive(false);         // Nonaktifkan notifikasi
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

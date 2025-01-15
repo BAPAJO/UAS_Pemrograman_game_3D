@@ -19082,19 +19082,19 @@ MonoBehaviour:
   - {fileID: 903813206}
   - {fileID: 116741650}
   aiAnim: {fileID: 919132149475941529}
-  walkSpeed: 5
-  chaseSpeed: 6
-  minIdleTime: 2
-  maxIdleTime: 5
-  idleTime: 2
+  walkSpeed: 0
+  chaseSpeed: 0
+  minIdleTime: 1
+  maxIdleTime: 1
+  idleTime: 1
   sightDistance: 11
   secondarySightDistance: 16.3
   catchDistance: 3
-  chaseTime: 5
+  chaseTime: 0
   minChaseTime: 2
   maxChaseTime: 10
   jumpscareTime: 2
-  walking: 1
+  walking: 0
   chasing: 0
   player: {fileID: 1567623204}
   destinationAmount: 12
@@ -49992,7 +49992,7 @@ MonoBehaviour:
   txtOpsiB: {fileID: 888916905}
   txtOpsiC: {fileID: 1142405637}
   txtOpsiD: {fileID: 58209808}
-  durasiPenilaian: 2
+  durasiPenilaian: 3
   panelSalah: {fileID: 2081157779}
 --- !u!4 &838884391
 Transform:
@@ -59675,6 +59675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashlight: {fileID: 112154884}
+  toggleKey: 102
 --- !u!1 &967092961
 GameObject:
   m_ObjectHideFlags: 0
@@ -80440,7 +80441,7 @@ Transform:
   m_GameObject: {fileID: 1322603984}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 92.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -131303,7 +131304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &919132149475941525
 NavMeshAgent:
   m_ObjectHideFlags: 0
