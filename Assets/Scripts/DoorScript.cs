@@ -23,42 +23,28 @@ public class DoorScript : MonoBehaviour
     }
 
     void Update()
+{
+    if (inTrigger)
     {
-        if (inTrigger)
-        {
-            if (close)
-            {
-                if (doorKey)
-                {
-                    if (Input.GetKeyDown(KeyCode.F))
-                    {
-                        SceneManager.LoadScene(sceneName);
-                        open = true;
-                        close = false;
-                    }
-                }
-            }
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.F))
-                {
-                    close = true;
-                    open = false;
-                }
-            }
-        }
+        Debug.Log("Player is in trigger zone.");
 
-        if (open)
+        if (doorKey)
         {
-            var newRot = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0.0f, 94.0f, 0.0f), Time.deltaTime * 200);
-            transform.rotation = newRot;
+            Debug.Log("Door key is available.");
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log("F pressed. Triggering scene...");
+                SceneManager.LoadScene(sceneName);
+                open = true;
+                close = false;
+            }
         }
         else
         {
-            var newRot = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 0.0f), Time.deltaTime * 200);
-            transform.rotation = newRot;
+            Debug.Log("Door key not available.");
         }
     }
+}
 
     void OnGUI()
     {
@@ -66,13 +52,13 @@ public class DoorScript : MonoBehaviour
         {
             if (open)
             {
-                GUI.Box(new Rect(0, 0, 200, 25), "Press G to close");
+                GUI.Box(new Rect(0, 0, 200, 25), "Press F to close");
             }
             else
             {
                 if (doorKey)
                 {
-                    GUI.Box(new Rect(0, 0, 200, 25), "Press G to open");
+                    GUI.Box(new Rect(0, 0, 200, 25), "Press F to open");
                 }
                 else
                 {

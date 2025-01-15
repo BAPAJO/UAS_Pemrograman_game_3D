@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlashLight : MonoBehaviour
 {
     public Light flashlight;
-    public KeyCode toggleKey = KeyCode.F;
+    // public KeyCode toggleKey = KeyCode.F;
 
     private bool isOn = true;
 
@@ -19,11 +19,11 @@ public class FlashLight : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(toggleKey))
-        {
-            isOn = !isOn;
-            flashlight.enabled = isOn;
-        }
+        // if (Input.GetKeyDown(toggleKey))
+        // {
+        //     isOn = !isOn;
+        //     flashlight.enabled = isOn;
+        // }
     }
 }
 

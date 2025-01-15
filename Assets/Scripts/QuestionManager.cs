@@ -61,11 +61,14 @@ public class QuestionManager : MonoBehaviour
         
     }
 
-    public void doorUnlock(){
-        DoorScript.doorKey = true;
-        isShowing = false;
-        menu.SetActive(isShowing);
-    }
+    public void doorUnlock()
+{
+    Debug.Log("Unlocking the door...");
+    DoorScript.doorKey = true;
+    isShowing = false;
+    menu.SetActive(isShowing);
+}
+
     public void changeScene()
     {
         SceneManager.LoadScene(sceneName);
